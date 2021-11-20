@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springboot-hello-world2
+  name: springboot-hello-world2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-hello-world2
+  template:
+    metadata:
+      labels:
+        app: springboot-hello-world2
+    spec:
+      containers:
+      - image: quay.io/malam/springboot-hello-world2:latest
+        imagePullPolicy: Always
+        name: springboot-hello-world2
+        ports:
+        - containerPort: 8080
+          protocol: TCP
